@@ -32,8 +32,9 @@
                         {{ duty.task }}  
                         <span style="position: relative; float: right;">
                             <a href="{% url 'mark_as_done' duty.pk %} " class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
-                            <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <a href="{% url 'delete_task' duty.pk %} " class="btn btn-danger"><i class="fa fa-trash"></i></a>
+
+                            <a href="{% url 'edit_task' duty.pk %}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
@@ -45,10 +46,14 @@
                 <div class="card m-1">
                     <div class="card-body">
                         <span style="position: relative; float: right;">
+                            <a href="{% url 'mark_as_undone' pk=task.id %}"class="btn btn-success"><i class="fa fa-check"></i> Mark as Undone</a>
                             <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         </span>
-                        {{ task.task}}
+                        
+                        {{ task.task }}
                     </div>
+                    
                 </div>
                 {% endfor %}
             </div>
